@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bridge-50 text-bridge-900 font-sans;
+    font-feature-settings: 'cv02','cv03','cv04','cv11';
+  }
+
+  h1, h2, h3 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2.5 bg-brand-500 text-white text-sm font-medium rounded-xl
+           hover:bg-brand-600 active:bg-brand-700 disabled:opacity-40
+           transition-all duration-150 shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2.5 bg-white text-bridge-700 text-sm font-medium rounded-xl
+           border border-bridge-200 hover:bg-bridge-50 hover:border-bridge-300
+           disabled:opacity-40 transition-all duration-150 shadow-sm;
+  }
+
+  .btn-ghost {
+    @apply px-3 py-2 text-bridge-600 text-sm font-medium rounded-lg
+           hover:bg-bridge-100 hover:text-bridge-900 transition-colors;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl border border-bridge-100 shadow-card;
+  }
+
+  .input {
+    @apply w-full border border-bridge-200 rounded-xl px-3 py-2.5 text-sm
+           bg-white placeholder:text-bridge-400
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
+           transition-shadow;
+  }
+
+  .badge-company {
+    @apply inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full
+           bg-purple-50 text-purple-700 border border-purple-100 font-medium;
+  }
+
+  .badge-department {
+    @apply inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full
+           bg-brand-50 text-brand-600 border border-brand-100 font-medium;
+  }
+
+  .badge-personal {
+    @apply inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full
+           bg-emerald-50 text-emerald-700 border border-emerald-100 font-medium;
+  }
+
+  .badge-draft {
+    @apply inline-flex items-center text-xs px-2.5 py-1 rounded-full
+           bg-amber-50 text-amber-700 border border-amber-100 font-medium;
+  }
+
+  .badge-active {
+    @apply inline-flex items-center text-xs px-2.5 py-1 rounded-full
+           bg-emerald-50 text-emerald-700 border border-emerald-100 font-medium;
+  }
+
+  .badge-archived {
+    @apply inline-flex items-center text-xs px-2.5 py-1 rounded-full
+           bg-bridge-100 text-bridge-500 border border-bridge-200 font-medium;
+  }
+}
