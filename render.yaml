@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: vendor-ai
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATA_DIR
+        value: /opt/render/project/src/data
+      - key: ANTHROPIC_API_KEY
+        sync: false

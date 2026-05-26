@@ -2,6 +2,8 @@ import 'dotenv/config';
 import express from 'express';
 import session from 'express-session';
 import SqliteStore from 'better-sqlite3-session-store';
+import path from 'path';
+import fs from 'fs';
 import db from './db';
 import { loadUser } from './auth';
 import authRoutes from './routes/authRoutes';
@@ -47,6 +49,13 @@ app.get('/api/departments', (_req, res) => {
 });
 
 app.get('/api/health', (_req, res) => res.json({ ok: true }));
+
+// Serve built frontend in production
+const staticDir = path.join(__dirname, '..');
+if (fs.existsSync(path.join(staticDir, 'index.html'))) {
+  app.use(express.static(staticDir));
+  app.get('*', (_req, res) => res.sendFile(path.join(staticDir, 'index.html')));
+}
 
 app.listen(PORT, () => {
   console.log(`Five Star AI Workspace API → http://localhost:${PORT}`);

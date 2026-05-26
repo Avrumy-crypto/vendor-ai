@@ -6,8 +6,9 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "tsx watch server/index.ts",
     "dev:client": "vite",
-    "build": "vite build && tsc -p tsconfig.node.json",
+    "build": "vite build && tsc -p tsconfig.node.json && cp -r server/migrations dist/server/migrations",
     "start": "node dist/server/index.js",
+    "start:prod": "npm run seed-admin && node dist/server/index.js",
     "seed-admin": "tsx server/seed-admin.ts"
   },
   "dependencies": {
