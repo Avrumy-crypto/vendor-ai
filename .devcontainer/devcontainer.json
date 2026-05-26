@@ -1,0 +1,20 @@
+{
+  "name": "Five Star AI Workspace",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "forwardPorts": [5175, 5176],
+  "portsAttributes": {
+    "5175": {
+      "label": "App (Frontend)",
+      "onAutoForward": "openBrowser"
+    },
+    "5176": {
+      "label": "API (Backend)",
+      "onAutoForward": "silent"
+    }
+  },
+  "postCreateCommand": "npm install && mkdir -p data && npm run seed-admin",
+  "remoteEnv": {
+    "SESSION_SECRET": "dev-secret-change-me",
+    "PORT": "5176"
+  }
+}
